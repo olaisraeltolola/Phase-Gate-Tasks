@@ -44,7 +44,7 @@ public class StudentGrade{
 
 			}
 		}
-		StudentGradeFunctions.displayClassSummary(studentGrades, studentsNumber, subjectNumber);
+		StudentGradeFunctions.displayStudentTable(studentGrades, studentsNumber, subjectNumber);
 
 	}
 
