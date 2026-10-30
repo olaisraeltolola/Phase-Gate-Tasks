@@ -1,9 +1,12 @@
 import java.util.ArrayList;
+
 public class StudentGradeFunctions{
 
 	public static void displayClassSummary(ArrayList<ArrayList<Integer>> studentGrades, int studentsNumber, int subjectNumber){
 
-		ArrayList<Integer> temporary = new ArrayList<>();	
+		ArrayList<Integer> temporaryTotals = new ArrayList<>();	
+		//ArrayList<Integer> positions = new ArrayList<>();
+
 	
 		System.out.println("==============================================================================");
 		System.out.print("STUDENT		");
@@ -17,8 +20,23 @@ public class StudentGradeFunctions{
 
 
 		System.out.println("==============================================================================");
+
+
 		for (int index = 0; index < studentsNumber; index++){ 
 			int total = 0;
+
+
+			for (int secondIndex = 0; secondIndex < subjectNumber; secondIndex++){
+				total += studentGrades.get(index).get(secondIndex);
+			}
+
+			temporaryTotals.add(total);
+		}
+		System.out.println("Totals = " + temporaryTotals);
+
+		for (int index = 0; index < temporaryTotals.size(); index++){ 
+			int singleTotal = temporaryTotals.get(index);
+			System.out.println("Single total = " + singleTotal);
 			double average = 0;
 
 			System.out.print("Student " + (index + 1) + ":	");
@@ -26,18 +44,15 @@ public class StudentGradeFunctions{
 			for (int secondIndex = 0; secondIndex < subjectNumber; secondIndex++){
 				System.out.printf("%02d",studentGrades.get(index).get(secondIndex));
 				System.out.print("      ");
-				total += studentGrades.get(index).get(secondIndex);
 
 			}
 
-			temporary.add(total);
+			System.out.print(singleTotal + "	");
 
-			System.out.print(total + "	");
-
-			average = (total + 0.0) / subjectNumber; 
+			average = (singleTotal + 0.0) / subjectNumber; 
 			System.out.printf("%.2f",average);
 
-			int position = getPosition(total, temporary);
+			int position = getPosition(singleTotal, temporaryTotals);
 			System.out.print("	" + position);
 			
 			System.out.println();
@@ -49,17 +64,23 @@ public class StudentGradeFunctions{
 	public static ArrayList<Integer> sort(ArrayList<Integer> totals){
 		int temporaryStore = 0;
 
-		for (int index = 0; index < totals.size(); index++){
-			for (int secondIndex = index + 1; secondIndex < totals.size(); secondIndex++){
-				if (totals.get(index) < totals.get(secondIndex)){
+		ArrayList<Integer> sorted = new ArrayList<>();
 
-					temporaryStore = totals.get(index);
-					totals.set(index, totals.get(secondIndex));
-					totals.set(secondIndex, temporaryStore);
+		for (int index = 0; index < totals.size(); index++){
+			sorted.add(totals.get(index));
+		}
+
+		for (int index = 0; index < sorted.size(); index++){
+			for (int secondIndex = index + 1; secondIndex < sorted.size(); secondIndex++){
+				if (sorted.get(index) < sorted.get(secondIndex)){
+
+					temporaryStore = sorted.get(index);
+					sorted.set(index, sorted.get(secondIndex));
+					sorted.set(secondIndex, temporaryStore);
 				}
 			}
 		}
-		return totals;
+		return sorted;
 	}
 	
 	public static int getPosition(int total, ArrayList<Integer> totals){
@@ -67,11 +88,15 @@ public class StudentGradeFunctions{
 		int position = 0;
 
 		for (int index = 0; index < totals.size(); index++){
-			if (total == totals.get(index)){
+			if (total == sortedArrayList.get(index)){
 				position = index + 1;
 			}
 		}
 		return position;
 	}
 
+	public static boolean isScoreValid(int score){
+		return score <= 100 && score >= 0;
+
+	}
 }

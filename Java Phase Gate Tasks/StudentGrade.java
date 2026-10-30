@@ -30,7 +30,18 @@ public class StudentGrade{
 				System.out.println("Enter score for subject " + (secondIndex + 1));
 				int score = input.nextInt();
 
+				while (StudentGradeFunctions.isScoreValid(score) == false){
+
+					System.out.println("Please enter a valid score");
+
+					System.out.println("Enter score for subject " + (secondIndex + 1));
+					score = input.nextInt();
+
+				}
+
+
 				studentGrades.get(index).add(score);
+
 			}
 		}
 		StudentGradeFunctions.displayClassSummary(studentGrades, studentsNumber, subjectNumber);

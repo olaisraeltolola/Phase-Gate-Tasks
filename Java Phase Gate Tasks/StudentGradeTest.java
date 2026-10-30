@@ -25,5 +25,26 @@ public class StudentGradeTest{
 		Assertions.assertEquals(actual, expected);
 	}
 
+	@Test
+	public void testThatAScoreInAnArrayListOfScoresHasTheCorrectPosition(){
+		ArrayList<Integer> scores = new ArrayList<>();
 
+		scores.add(90);
+ 		scores.add(100);
+		scores.add(45);
+		scores.add(68);
+		scores.add(78);
+		scores.add(9);
+
+		int actual = StudentGradeFunctions.getPosition(78, scores);
+		int expected = 3;
+
+		Assertions.assertEquals(actual, expected);
+	}
+	
+	@Test
+	public void testThatInputtedScoresAreBetweenOneAndHundred(){
+		Assertions.assertTrue(StudentGradeFunctions.isScoreValid(98));
+
+	}
 }
