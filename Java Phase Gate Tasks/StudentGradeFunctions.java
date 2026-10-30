@@ -64,7 +64,7 @@ public class StudentGradeFunctions{
 			average = (singleTotal + 0.0) / subjectNumber; 
 			System.out.printf("%.2f",average);
 
-			int position = getPosition(singleTotal, temporaryTotals);
+			int position = getSortedPosition(singleTotal, temporaryTotals);
 			System.out.print("	" + position);
 			
 			System.out.println();
@@ -94,11 +94,25 @@ public class StudentGradeFunctions{
 			System.out.println("Number of passes: " + getNumberOfPasses(subjects.get(index)));
 			System.out.println("Number of fails: " + (subjects.get(index).size() - getNumberOfPasses(subjects.get(index))));
 
+
 		}
+			System.out.println();
+			System.out.println();
+
+			System.out.println("CLASS SUMMARY");			
+
+			ArrayList<Integer> sortedArrayList = sort(temporaryTotals);
+			int highestTotal = sortedArrayList.get(0);
+			int lowestTotal = sortedArrayList.get(sortedArrayList.size() - 1);
+
+
+			System.out.println("Best Graduating Student is: Student " + getUnsortedPosition(highestTotal, temporaryTotals) + " scoring " + highestTotal);
+			System.out.println("Worst Graduating Student is: Student " + getUnsortedPosition(lowestTotal, temporaryTotals) + " scoring " + lowestTotal);
+			System.out.println("Class Total Score: " + getTotal(temporaryTotals));
+			System.out.println("Class Average Score: " + getAverage(temporaryTotals));
+
 					
 	}
-
-
 
 
 
@@ -124,7 +138,7 @@ public class StudentGradeFunctions{
 		return sorted;
 	}
 	
-	public static int getPosition(int total, ArrayList<Integer> totals){
+	public static int getSortedPosition(int total, ArrayList<Integer> totals){
 		ArrayList<Integer> sortedArrayList = sort(totals);
 		int position = 0;
 
@@ -135,6 +149,18 @@ public class StudentGradeFunctions{
 		}
 		return position;
 	}
+
+	public static int getUnsortedPosition(int total, ArrayList<Integer> totals){
+		int position = 0;
+
+		for (int index = 0; index < totals.size(); index++){
+			if (total == totals.get(index)){
+				position = index + 1;
+			}
+		}
+		return position;
+	}
+
 
 	public static boolean isScoreValid(int score){
 		return score <= 100 && score >= 0;
