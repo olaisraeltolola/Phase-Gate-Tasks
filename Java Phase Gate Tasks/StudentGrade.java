@@ -1,0 +1,40 @@
+import java.util.Scanner;
+import java.util.ArrayList;
+
+public class StudentGrade{
+
+	public static void main(String[] args){
+		Scanner input = new Scanner(System.in);
+
+		ArrayList<ArrayList<Integer>> studentGrades = new ArrayList<>();
+
+		System.out.println("How many students do you have?");
+		int studentsNumber = input.nextInt();
+
+		System.out.println("How many subjects do they offer?");
+		int subjectNumber = input.nextInt();
+
+
+		for (int index = 0; index < studentsNumber; index++){ 
+			studentGrades.add(new ArrayList<>());
+		}
+
+
+		for (int index = 0; index < studentsNumber; index++){
+
+			System.out.println();
+			System.out.println("Entering score for student " + (index + 1));
+
+			for (int secondIndex = 0; secondIndex < subjectNumber; secondIndex++){
+
+				System.out.println("Enter score for subject " + (secondIndex + 1));
+				int score = input.nextInt();
+
+				studentGrades.get(index).add(score);
+			}
+		}
+		StudentGradeFunctions.displayClassSummary(studentGrades, studentsNumber, subjectNumber);
+
+	}
+
+}
