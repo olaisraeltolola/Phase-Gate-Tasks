@@ -110,7 +110,8 @@ public class StudentGradeFunctions{
 			System.out.println("Worst Graduating Student is: Student " + getUnsortedPosition(lowestTotal, temporaryTotals) + " scoring " + lowestTotal);
 			System.out.println("Class Total Score: " + getTotal(temporaryTotals));
 			System.out.println("Class Average Score: " + getAverage(temporaryTotals));
-
+			System.out.println();
+			System.out.println();
 					
 	}
 
