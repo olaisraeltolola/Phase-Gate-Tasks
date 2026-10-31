@@ -5,7 +5,6 @@ function displayStudentTable(studentGrades, studentsNumber, subjectNumber){
 	temporaryTotals = [];	
 	subjects = [];
 	output = "";
-	secondOutput = "";
 	
 	output += "==============================================================================\n";
 	output += "STUDENT		";
@@ -44,13 +43,14 @@ function displayStudentTable(studentGrades, studentsNumber, subjectNumber){
 
 
 	for (let index = 0; index < temporaryTotals.length; index++){
+		secondOutput = "";
 		singleTotal = temporaryTotals[index];
 		average = 0;
 
 		secondOutput += "Student" + (index + 1) + ":	";
 
 		for (let secondIndex = 0; secondIndex < subjectNumber; secondIndex++){
-			secondOutput += `${studentGrades[index][secondIndex].toString().padStart(2, '0')}`;
+			secondOutput += `${studentGrades[index][secondIndex].toString().padStart(3, '0')}`;
 			secondOutput += "      ";
 		}
 
