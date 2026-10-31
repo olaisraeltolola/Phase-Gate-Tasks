@@ -7,7 +7,7 @@ def display_student_table(student_grades, students_number, subject_number):
 	print("STUDENT		", end ="");
 
 	for counter in range (1, subject_number + 1):
-		print("SUB",counter,"	", end="");
+		print("SUB",counter,"	", end="")
 
 	print("TOT" + "	", end="")
 	print("AVG" + "	", end="")
@@ -50,7 +50,7 @@ def display_student_table(student_grades, students_number, subject_number):
 		print(f"{single_total}	", end="")
 
 		average = single_total / subject_number 
-		print(f"{average:.2f}", end="");
+		print(f"{average:.2f}", end="")
 
 		position = get_sorted_position(single_total, temporary_totals);
 		print(f"	{position}")
@@ -78,7 +78,7 @@ def display_student_table(student_grades, students_number, subject_number):
 		print("Total Score is:",get_total(subjects[index]))
 		print(f"Average Score is: {get_average(subjects[index]):.2f}")
 		print()
-		print("Number of passes:",get_number_of_passes(subjects[index]));
+		print("Number of passes:",get_number_of_passes(subjects[index]))
 		print("Number of fails:",(len(subjects[index]) - get_number_of_passes(subjects[index])));
 
 
@@ -236,7 +236,7 @@ number_of_classes = int(input("How many classes do you want to record?: "))
 for counter in range(1, number_of_classes + 1):
 	student_grades = []
 
-	print("Class",counter);
+	print("Class",counter)
 	
 	students_number = int(input("How many students do you have?: "))
 
@@ -256,7 +256,7 @@ for counter in range(1, number_of_classes + 1):
 
 				print("Please enter a valid score")
 
-				score = int(input(f"Enter score for subject {second_index + 1}: "));
+				score = int(input(f"Enter score for subject {second_index + 1}: "))
 
 			temporary_list.append(score)
 

@@ -7,7 +7,7 @@ public class StudentGradeFunctions{
 		ArrayList<Integer> temporaryTotals = new ArrayList<>();	
 		ArrayList<ArrayList<Integer>> subjects = new ArrayList<>();
 
-		for (int counter = 1; counter <= studentsNumber; counter++){
+		for (int counter = 1; counter <= subjectNumber; counter++){
 			subjects.add(new ArrayList<>());
 
 		}
@@ -47,7 +47,7 @@ public class StudentGradeFunctions{
 		}
 
 
-		for (int index = 0; index < temporaryTotals.size(); index++){ 
+		for (int index = 0; index < studentsNumber; index++){ 
 			int singleTotal = temporaryTotals.get(index);
 			double average = 0;
 
