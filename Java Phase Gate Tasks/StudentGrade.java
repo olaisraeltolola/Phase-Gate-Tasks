@@ -6,12 +6,13 @@ public class StudentGrade{
 	public static void main(String[] args){
 		Scanner input = new Scanner(System.in);
 
-		ArrayList<ArrayList<Integer>> studentGrades = new ArrayList<>();
-
 		System.out.println("How many classes do you want to record?");
 		int numberOfClasses = input.nextInt();
 
 		for (int counter = 1; counter <= numberOfClasses; counter++){
+
+			ArrayList<ArrayList<Integer>> studentGrades = new ArrayList<>();
+
 			System.out.println("Class " + counter);
 	
 			System.out.println("How many students do you have?");

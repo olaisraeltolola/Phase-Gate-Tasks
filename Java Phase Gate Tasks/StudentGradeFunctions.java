@@ -54,7 +54,7 @@ public class StudentGradeFunctions{
 			System.out.print("Student " + (index + 1) + ":	");
 
 			for (int secondIndex = 0; secondIndex < subjectNumber; secondIndex++){
-				System.out.printf("%02d",studentGrades.get(index).get(secondIndex));
+				System.out.printf("%03d",studentGrades.get(index).get(secondIndex));
 				System.out.print("      ");
 
 			}
